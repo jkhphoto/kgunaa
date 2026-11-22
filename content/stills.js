@@ -1,18 +1,14 @@
-// Photography. Each `file` is a filename inside stills-src/ (originals live there,
-// scripts/build-images.mjs makes fast WebP sizes at build). Order = display order.
-// series groups images for the filter on /stills; leave it off for none.
+const filler = require('./filler')
+
+// Photography, in display order.
+// Real images: put the original in stills-src/ and use { file: 'name.jpg', alt: '...' }.
+// The build makes responsive WebP sizes. Remote filler uses { ...filler.tXX }.
 const stills = [
-  { file: 'ph-01.jpg', alt: 'TODO', series: 'Running' },
-  { file: 'ph-02.jpg', alt: 'TODO', series: 'Commercial' },
-  { file: 'ph-03.jpg', alt: 'TODO', series: 'Running' },
-  { file: 'ph-04.jpg', alt: 'TODO', series: 'Portraits' },
-  { file: 'ph-05.jpg', alt: 'TODO', series: 'Running' },
-  { file: 'ph-06.jpg', alt: 'TODO', series: 'Portraits' },
-  { file: 'ph-07.jpg', alt: 'TODO', series: 'Commercial' },
-  { file: 'ph-08.jpg', alt: 'TODO', series: 'Running' },
-  { file: 'ph-09.jpg', alt: 'TODO', series: 'Portraits' },
-  { file: 'ph-10.jpg', alt: 'TODO', series: 'Running' },
-  { file: 'ph-11.jpg', alt: 'TODO', series: 'Commercial' },
-  { file: 'ph-12.jpg', alt: 'TODO', series: 'Portraits' },
+  { ...filler.t05, alt: '' }, // FILLER
+  { ...filler.t02, alt: '' }, // FILLER
+  { ...filler.t03, alt: '' }, // FILLER
+  { ...filler.t04, alt: '' }, // FILLER
+  { ...filler.t01, alt: '' }, // FILLER
+  { ...filler.t06, alt: '' }, // FILLER
 ]
 module.exports = stills

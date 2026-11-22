@@ -5,8 +5,8 @@ import site from '../content/site'
 
 export const metadata = {
   metadataBase: new URL(site.url),
-  title: { default: `${site.name} — ${site.roles.join(', ')}`, template: `%s — ${site.name}` },
-  description: `${site.name}, ${site.roles.join(' and ').toLowerCase()}.`,
+  title: { default: site.name, template: `%s — ${site.name}` },
+  description: site.line,
   openGraph: { siteName: site.name, type: 'website', images: [{ url: '/og/default.jpg', width: 1200, height: 630 }] },
   twitter: { card: 'summary_large_image' },
 }

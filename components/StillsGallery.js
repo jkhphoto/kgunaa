@@ -1,43 +1,31 @@
 'use client'
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import { place } from '../lib/place'
 
-// Hard three-column grid, images uncropped at their true shape, numbered
-// captions like a deck contact sheet.
+// Images drift across a 12-column grid with lots of air between them.
+// Click opens a full-screen viewer (arrows, swipe, Esc).
 export default function StillsGallery({ items }) {
-  const series = useMemo(() => ['All', ...new Set(items.map(i => i.series).filter(Boolean))], [items])
-  const [filter, setFilter] = useState('All')
   const [open, setOpen] = useState(null)
-  const shown = filter === 'All' ? items : items.filter(i => i.series === filter)
-
   return (
     <>
-      {series.length > 2 && (
-        <div className="filters" role="tablist">
-          {series.map(s => (
-            <button key={s} role="tab" aria-selected={filter === s} className={filter === s ? 'is-active' : ''} onClick={() => setFilter(s)}>{s}</button>
-          ))}
-        </div>
-      )}
-      <div className="sgrid">
-        {shown.map((img, i) => (
-          <button key={img.file} className="sgrid__item" onClick={() => setOpen(i)} aria-label={`Open ${img.alt}`}>
-            <div className="sgrid__frame" style={{ aspectRatio: `${img.w} / ${img.h}`, background: img.color }}>
-              <img
-                src={img.src}
-                srcSet={img.srcSet}
-                sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw"
-                alt={img.alt}
-                loading={i < 6 ? 'eager' : 'lazy'}
-                decoding="async"
-                width={img.w}
-                height={img.h}
-              />
-            </div>
-            <div className="cap"><span>{String(i + 1).padStart(3, '0')}</span><span>{img.series}</span></div>
+      <div className="drift">
+        {items.map((img, i) => (
+          <button key={img.key} className="drift__item" style={place(i, img.ratio)} onClick={() => setOpen(i)} aria-label="Open image">
+            <img
+              src={img.src}
+              srcSet={img.srcSet}
+              sizes="(max-width: 700px) 100vw, 66vw"
+              alt={img.alt}
+              loading={i < 2 ? 'eager' : 'lazy'}
+              decoding="async"
+              width={img.w}
+              height={img.h}
+              style={{ aspectRatio: `${img.w} / ${img.h}` }}
+            />
           </button>
         ))}
       </div>
-      {open !== null && <Lightbox items={shown} index={open} setIndex={setOpen} />}
+      {open !== null && <Lightbox items={items} index={open} setIndex={setOpen} />}
     </>
   )
 }
@@ -57,9 +45,8 @@ function Lightbox({ items, index, setIndex }) {
     document.body.style.overflow = 'hidden'
     return () => { document.removeEventListener('keydown', onKey); document.body.style.overflow = '' }
   }, [go, close])
-  // Warm the cache for neighbours so arrowing feels instant.
   useEffect(() => {
-    for (const d of [1, -1]) { const im = new Image(); const it = items[(index + d + n) % n]; im.srcset = it.srcSet; im.sizes = '100vw' }
+    for (const d of [1, -1]) { const it = items[(index + d + n) % n]; const im = new Image(); if (it.srcSet) { im.srcset = it.srcSet; im.sizes = '100vw' } im.src = it.src }
   }, [index, items, n])
   const img = items[index]
   return (
@@ -77,7 +64,6 @@ function Lightbox({ items, index, setIndex }) {
       <img src={img.src} srcSet={img.srcSet} sizes="100vw" alt={img.alt} onClick={e => { e.stopPropagation(); go(1) }} />
       <div className="lightbox__bar" onClick={e => e.stopPropagation()}>
         <button onClick={() => go(-1)}>Prev</button>
-        <span>{String(index + 1).padStart(2, '0')} / {String(n).padStart(2, '0')}</span>
         <button onClick={() => go(1)}>Next</button>
         <button onClick={close}>Close</button>
       </div>

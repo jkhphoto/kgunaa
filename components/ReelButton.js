@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 import { embedUrl } from '../lib/media'
 
-export default function ReelButton({ reel, label = 'Watch reel' }) {
+export default function ReelButton({ reel, className = '' }) {
   const [open, setOpen] = useState(false)
   useEffect(() => {
     if (!open) return
@@ -13,7 +13,7 @@ export default function ReelButton({ reel, label = 'Watch reel' }) {
   }, [open])
   return (
     <>
-      <button className="pill" onClick={() => setOpen(true)}>{label} <span aria-hidden>↗</span></button>
+      <button className={className} onClick={() => setOpen(true)}>Reel</button>
       {open && (
         <div className="modal" role="dialog" aria-label={reel.title} onClick={() => setOpen(false)}>
           <button className="modal__close">Close</button>

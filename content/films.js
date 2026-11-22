@@ -1,58 +1,35 @@
-// Motion work. Order here is the order on the home page.
-// video.provider: 'vimeo' | 'youtube'. poster: a 16:9 frame (put it in public/images/films/).
-// frames: optional frame grabs shown under the film (16:9 or 2.39:1 works best).
+const filler = require('./filler')
+
+// Motion work, in display order. video.provider: 'vimeo' | 'youtube'.
+// poster: a 16:9 frame in public/images/films/ (e.g. '/images/films/swoosh.jpg').
+// All entries below are PLACEHOLDERS: titles, ids and posters need Kevin's real work.
 const films = [
   {
-    slug: 'placeholder-swoosh-tc',
-    title: 'TODO: Film title',
+    slug: 'swoosh-tc',
+    title: 'TODO',
     client: 'Swoosh TC',
-    role: 'Director of Photography',
     year: 2026,
     video: { provider: 'vimeo', id: '76979871' },
-    poster: '/images/placeholders/film-1.jpg',
-    aspect: '16 / 9',
-    credits: [
-      ['Director', 'TODO'],
-      ['Director of Photography', 'Kevin Gunawan'],
-      ['Production', 'TODO'],
-    ],
-    frames: ['/images/placeholders/frame-1.jpg', '/images/placeholders/frame-2.jpg', '/images/placeholders/frame-3.jpg'],
+    poster: filler.t02.src, // FILLER
+    credits: [['Director of Photography', 'Kevin Gunawan']],
   },
   {
-    slug: 'placeholder-puma',
-    title: 'TODO: Film title',
-    client: 'Puma',
-    role: 'Director of Photography',
-    year: 2026,
-    video: { provider: 'youtube', id: 'aqz-KE-bpKQ' },
-    poster: '/images/placeholders/film-2.jpg',
-    aspect: '16 / 9',
-    credits: [['Director', 'TODO']],
-    frames: [],
-  },
-  {
-    slug: 'placeholder-brooks',
-    title: 'TODO: Film title',
-    client: 'Brooks',
-    role: 'Director of Photography',
-    year: 2025,
-    video: { provider: 'vimeo', id: '76979871' },
-    poster: '/images/placeholders/film-3.jpg',
-    aspect: '16 / 9',
-    credits: [],
-    frames: [],
-  },
-  {
-    slug: 'placeholder-project-stella',
-    title: 'TODO: Film title',
+    slug: 'project-stella',
+    title: 'Project Stella',
     client: 'Project Stella',
-    role: 'Director / DP',
-    year: 2025,
+    year: 2026,
     video: { provider: 'vimeo', id: '76979871' },
-    poster: '/images/placeholders/film-4.jpg',
-    aspect: '16 / 9',
+    poster: filler.t06.src, // FILLER
     credits: [],
-    frames: [],
+  },
+  {
+    slug: 'puma',
+    title: 'TODO',
+    client: 'Puma',
+    year: 2025,
+    video: { provider: 'youtube', id: 'aqz-KE-bpKQ' },
+    poster: filler.t01.src, // FILLER
+    credits: [],
   },
 ]
 module.exports = films
