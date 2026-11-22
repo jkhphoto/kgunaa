@@ -141,7 +141,7 @@ img { display: block; max-width: 100%; }
 .about .facts { margin-top: 24px; }
 
 /* Clients */
-.clients { list-style: none; border-top: 1px solid currentColor; }
+.clients { list-style: none; }
 .clients li { font-size: clamp(44px, 7.5vw, 140px); padding: 0.08em 0 0.1em; border-bottom: 1px solid currentColor; }
 
 /* Footer */
@@ -179,3 +179,14 @@ img { display: block; max-width: 100%; }
   .slide { min-height: 0; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* Press list on About */
+.press__label { margin-top: 32px; }
+.press { list-style: none; border-top: 1px solid var(--k); }
+.press a { display: grid; grid-template-columns: 1fr 3fr 1fr; gap: var(--gut); padding: 14px 0; border-bottom: 1px solid var(--k); align-items: baseline; transition: background .12s, color .12s, padding .2s; }
+.press a:hover { background: var(--k); color: var(--w); padding-inline: 10px; }
+.press strong { font-weight: 700; font-size: 17px; letter-spacing: -0.02em; }
+.press a > :last-child { text-align: right; }
+@media (max-width: 700px) { .press a { grid-template-columns: 1fr; gap: 4px; } .press a > :last-child { text-align: left; } }
+.about .lede + .lede { font-size: clamp(17px, 1.4vw, 21px); line-height: 1.3; letter-spacing: -0.01em; max-width: 40ch; }
+.press a > :last-child { white-space: nowrap; }

@@ -3,7 +3,7 @@ const site = {
   name: 'Kevin Gunawan',
   handle: 'kgunaa',
   roles: ['Director of Photography', 'Photographer'],
-  location: 'TODO: City, ST',
+  location: 'Boulder, Colorado',
   email: 'hello@kgunaa.com',
   instagram: 'https://instagram.com/kgunaa',
   url: 'https://kgunaa.com', // TODO: confirm production domain
@@ -18,13 +18,25 @@ const site = {
   heroVideo: null, // e.g. '/video/hero.mp4'
   heroPoster: '/images/placeholders/hero.jpg', // TODO: a frame from the reel
 
+  // Facts here come from the Tempo Journal profile (see press). Have Kevin read it over.
   bio: [
-    'TODO: Two or three sentences in Kevin’s voice. What he shoots, who he shoots with, what he cares about in an image.',
-    'TODO: Background line. Where he came up (e.g. running with Tinman Elite and Swoosh TC), and how that shapes the work.',
+    'Kevin Gunawan is a cinematographer and photographer based in Boulder, Colorado, working in and around running.',
+    'He ran NCAA Division I cross country and track at Loyola University Chicago while studying film and digital media. When injury ended his racing, he stayed on the team as the runner with the camera.',
+    'Since then he has made work with Tinman Elite, Heartbreak Hill Running Company, Puma and Brooks, co-founded the production collective Footstep Creative, and now helps build Nike Running’s Swoosh TC channel. The projects he rates highest bring people together: Project Stella, and Generations, a 300-page book on seven years of Tinman Elite.',
   ],
 
-  // Shown as a big list on the About page.
-  clients: ['Nike', 'Jacquemus', 'Tracksmith', 'Swoosh TC', 'Tinman Elite', 'Project Stella', 'TODO: confirm list'],
+  // Shown as a big list on the About page. All named in the Tempo profile.
+  // TODO: add anyone else Kevin wants listed (e.g. Jacquemus, if he shot that work).
+  clients: ['Nike Running', 'Swoosh TC', 'Puma', 'Brooks', 'TCS', 'Tinman Elite', 'Heartbreak Hill'],
+
+  press: [
+    {
+      outlet: 'Tempo Journal',
+      title: 'Kevin Gunawan: The Teammate Behind the Lens',
+      date: 'September 2026',
+      url: 'https://tempojournal.com/article/kevin-gunawan-the-teammate-behind-the-lens',
+    },
+  ],
 
   // Optional representation. Set to null to hide.
   representation: null, // e.g. { label: 'Represented by', name: 'Agency', email: 'agent@agency.com' }

@@ -20,6 +20,22 @@ export default function About() {
                 <div><dt>{site.representation.label}</dt><dd>{site.representation.name}, <a href={`mailto:${site.representation.email}`}>{site.representation.email}</a></dd></div>
               )}
             </dl>
+            {site.press?.length > 0 && (
+              <>
+                <h2 className="label press__label">Press</h2>
+                <ul className="press">
+                  {site.press.map(p => (
+                    <li key={p.url}>
+                      <a href={p.url} target="_blank" rel="noreferrer">
+                        <span>{p.outlet}</span>
+                        <strong>{p.title}</strong>
+                        <span>{p.date} ↗</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
           </div>
         </div>
       </Slide>

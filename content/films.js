@@ -3,9 +3,9 @@
 // frames: optional frame grabs shown under the film (16:9 or 2.39:1 works best).
 const films = [
   {
-    slug: 'placeholder-nike-running',
+    slug: 'placeholder-swoosh-tc',
     title: 'TODO: Film title',
-    client: 'Nike',
+    client: 'Swoosh TC',
     role: 'Director of Photography',
     year: 2026,
     video: { provider: 'vimeo', id: '76979871' },
@@ -19,9 +19,9 @@ const films = [
     frames: ['/images/placeholders/frame-1.jpg', '/images/placeholders/frame-2.jpg', '/images/placeholders/frame-3.jpg'],
   },
   {
-    slug: 'placeholder-jacquemus',
+    slug: 'placeholder-puma',
     title: 'TODO: Film title',
-    client: 'Jacquemus',
+    client: 'Puma',
     role: 'Director of Photography',
     year: 2026,
     video: { provider: 'youtube', id: 'aqz-KE-bpKQ' },
@@ -31,9 +31,9 @@ const films = [
     frames: [],
   },
   {
-    slug: 'placeholder-tracksmith',
+    slug: 'placeholder-brooks',
     title: 'TODO: Film title',
-    client: 'Tracksmith',
+    client: 'Brooks',
     role: 'Director of Photography',
     year: 2025,
     video: { provider: 'vimeo', id: '76979871' },
