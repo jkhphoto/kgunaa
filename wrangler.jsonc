@@ -1,0 +1,12 @@
+// Used only if the site is deployed as a Cloudflare Worker with static assets
+// (Workers Builds: build `npm run build`, deploy `npx wrangler deploy`).
+// Cloudflare Pages ignores this file; there the output folder is `out`.
+{
+  "name": "kgunaa",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  }
+}

@@ -38,3 +38,9 @@ npm run deploy         # builds, then: wrangler pages deploy ./out --project-nam
 The first deploy creates the `kgunaa` Pages project. Then add the custom
 domain in the Cloudflare dashboard (Workers & Pages → kgunaa → Custom domains).
 Cache headers are in `public/_headers`.
+
+### Cloudflare settings (Git-connected)
+
+- **Pages:** build command `npm run build`, output directory `out`.
+- **Workers Builds** (the newer default): build command `npm run build`,
+  deploy command `npx wrangler deploy`. Uses `wrangler.jsonc`.
