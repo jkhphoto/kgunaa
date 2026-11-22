@@ -13,8 +13,8 @@ const projects = [
   { slug: 'jacquemus-x-nike', name: 'Jacquemus x Nike', years: [2024, 2024] },
   { slug: 'sova', name: 'SOVA', years: [2024, 2024] },
   { slug: 'tcs', name: 'TCS', years: [2022, null], poster: filler.t04.src /* FILLER */ },
-  { slug: 'tinman-elite', name: 'Tinman Elite', years: [2020, 2025], poster: filler.t01.src /* FILLER */ },
-  { slug: 'heartbreak-hill', name: 'Heartbreak Hill Running Co', years: [2020, 2022], poster: filler.t05.src /* FILLER */ },
+  { slug: 'tinman-elite', name: 'Tinman Elite', years: [2021, 2025], poster: filler.t01.src /* FILLER */ },
+  { slug: 'heartbreak-hill', name: 'Heartbreak Hill Running Co', years: [2021, 2023], poster: filler.t05.src /* FILLER */ },
   { slug: 'loyola-ramblers', name: 'Loyola Ramblers', years: [2018, 2022], poster: filler.t03.src /* FILLER */ },
 ].map(p => ({ video: null, credits: [], images: [], ...p }))
 
