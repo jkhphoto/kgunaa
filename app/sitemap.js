@@ -1,6 +1,6 @@
 import site from '../content/site'
-import films from '../content/films'
+import projects from '../content/projects'
 export const dynamic = 'force-static'
 export default function sitemap() {
-  return ['', '/stills', '/info', ...films.map(f => `/work/${f.slug}`)].map(p => ({ url: site.url + p }))
+  return ['', '/stills', '/info', ...projects.filter(p => p.poster).map(p => `/work/${p.slug}`)].map(p => ({ url: site.url + p }))
 }

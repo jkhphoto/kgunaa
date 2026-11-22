@@ -15,7 +15,7 @@ npm run dev            # http://localhost:3000
 | What | Where |
 | --- | --- |
 | Email, one-line bio, reel, cover, press | `content/site.js` |
-| Films (Vimeo/YouTube id, poster, credits) | `content/films.js` |
+| Projects (name, years, poster, optional video) | `content/projects.js` |
 | Photography | originals in `stills-src/`, listed in `content/stills.js` |
 
 **Before launch:** every image marked `FILLER` is hotlinked from Tempo Journal's

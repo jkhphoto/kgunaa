@@ -91,3 +91,13 @@ a:hover, button:hover { opacity: .5; }
   .nav nav { gap: 1.4em; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* Project index: plain list, name left, years right */
+.index { padding: var(--air) var(--pad) 0; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gut); }
+.index ul { list-style: none; grid-column: 7 / 13; }
+.index li a, .index li div { display: flex; justify-content: space-between; gap: 1em; padding: 3px 0; }
+.index li div { opacity: .45; }
+.index span:last-child { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.work__poster, .work__img { width: 100%; max-width: calc((100svh - 140px) * 16 / 9); margin: 0 auto; aspect-ratio: 16 / 9; object-fit: cover; }
+.work__img { margin-top: var(--gut); }
+@media (max-width: 700px) { .index ul { grid-column: 1 / -1; } }
