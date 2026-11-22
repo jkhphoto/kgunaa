@@ -1,5 +1,5 @@
 {
-  "name": "kevin-gunawan",
+  "name": "kgunaa",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -7,7 +7,7 @@
     "images": "node scripts/build-images.mjs",
     "build": "node scripts/build-images.mjs && next build",
     "start": "npx serve out",
-    "deploy": "npm run build && npx wrangler pages deploy ./out --project-name=kevin-gunawan"
+    "deploy": "npm run build && npx wrangler pages deploy ./out --project-name=kgunaa"
   },
   "dependencies": {
     "next": "14.2.35",

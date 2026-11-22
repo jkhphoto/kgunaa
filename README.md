@@ -32,9 +32,9 @@ npm run dev            # http://localhost:3000
 
 ```bash
 npx wrangler login     # once
-npm run deploy         # builds, then: wrangler pages deploy ./out --project-name=kevin-gunawan
+npm run deploy         # builds, then: wrangler pages deploy ./out --project-name=kgunaa
 ```
 
-The first deploy creates the `kevin-gunawan` Pages project. Then add the custom
-domain in the Cloudflare dashboard (Workers & Pages → kevin-gunawan → Custom domains).
+The first deploy creates the `kgunaa` Pages project. Then add the custom
+domain in the Cloudflare dashboard (Workers & Pages → kgunaa → Custom domains).
 Cache headers are in `public/_headers`.
