@@ -101,3 +101,10 @@ a:hover, button:hover { opacity: .5; }
 .work__poster, .work__img { width: 100%; max-width: calc((100svh - 140px) * 16 / 9); margin: 0 auto; aspect-ratio: 16 / 9; object-fit: cover; }
 .work__img { margin-top: var(--gut); }
 @media (max-width: 700px) { .index ul { grid-column: 1 / -1; } }
+.section { padding-top: calc(var(--pad) * 3); }
+.section .drift { padding-top: calc(var(--air) * .5); }
+.index ul { grid-column: 5 / 13; }
+.index li a, .index li div { display: grid; grid-template-columns: 5fr 3fr 1.4fr; }
+.index li span:last-child { text-align: right; }
+.index__tags { opacity: .45; }
+@media (max-width: 700px) { .index ul { grid-column: 1 / -1; } .index li a, .index li div { grid-template-columns: 1fr auto; } .index__tags { display: none; } }
