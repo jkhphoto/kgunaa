@@ -4,22 +4,22 @@ import { usePathname } from 'next/navigation'
 import site from '../content/site'
 
 const links = [
-  ['/', 'Work'],
-  ['/stills', 'Stills'],
-  ['/about', 'About'],
+  ['/#motion', 'Motion', p => p === '/' || p.startsWith('/work')],
+  ['/stills', 'Stills', p => p.startsWith('/stills')],
+  ['/about', 'About', p => p.startsWith('/about')],
 ]
 
+// Deck header: name left, role centre, index right. Same on every page.
 export default function Nav() {
   const path = usePathname()
-  const onHome = path === '/'
   return (
-    <header className={`nav${onHome ? ' nav--overlay' : ''}`}>
+    <header className="nav">
       <Link href="/" className="nav__name">{site.name}</Link>
+      <span className="nav__role">{site.roles.join(', ')}</span>
       <nav className="nav__links">
-        {links.map(([href, label]) => {
-          const active = href === '/' ? path === '/' || path.startsWith('/work') : path.startsWith(href)
-          return <Link key={href} href={href} className={active ? 'is-active' : ''}>{label}</Link>
-        })}
+        {links.map(([href, label, on]) => (
+          <Link key={href} href={href} className={on(path) ? 'is-on' : ''}>{label}</Link>
+        ))}
         <a href={`mailto:${site.email}`}>Contact</a>
       </nav>
     </header>

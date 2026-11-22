@@ -1,8 +1,8 @@
 'use client'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
-// Justified rows in reading order: each tile's flex-grow is its aspect ratio,
-// so rows fill edge to edge with no cropping and no layout JS.
+// Hard three-column grid, images uncropped at their true shape, numbered
+// captions like a deck contact sheet.
 export default function StillsGallery({ items }) {
   const series = useMemo(() => ['All', ...new Set(items.map(i => i.series).filter(Boolean))], [items])
   const [filter, setFilter] = useState('All')
@@ -18,25 +18,22 @@ export default function StillsGallery({ items }) {
           ))}
         </div>
       )}
-      <div className="justified">
+      <div className="sgrid">
         {shown.map((img, i) => (
-          <button
-            key={img.file}
-            className="tile"
-            style={{ '--r': img.ratio, aspectRatio: `${img.w} / ${img.h}`, background: img.color }}
-            onClick={() => setOpen(i)}
-            aria-label={`Open ${img.alt}`}
-          >
-            <img
-              src={img.src}
-              srcSet={img.srcSet}
-              sizes="(max-width: 700px) 100vw, 50vw"
-              alt={img.alt}
-              loading={i < 6 ? 'eager' : 'lazy'}
-              decoding="async"
-              width={img.w}
-              height={img.h}
-            />
+          <button key={img.file} className="sgrid__item" onClick={() => setOpen(i)} aria-label={`Open ${img.alt}`}>
+            <div className="sgrid__frame" style={{ aspectRatio: `${img.w} / ${img.h}`, background: img.color }}>
+              <img
+                src={img.src}
+                srcSet={img.srcSet}
+                sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw"
+                alt={img.alt}
+                loading={i < 6 ? 'eager' : 'lazy'}
+                decoding="async"
+                width={img.w}
+                height={img.h}
+              />
+            </div>
+            <div className="cap"><span>{String(i + 1).padStart(3, '0')}</span><span>{img.series}</span></div>
           </button>
         ))}
       </div>

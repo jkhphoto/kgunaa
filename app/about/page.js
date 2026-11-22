@@ -1,29 +1,31 @@
 import site from '../../content/site'
+import Slide from '../../components/Slide'
 
 export const metadata = { title: 'About' }
 
 export default function About() {
   return (
-    <div className="page about">
-      <img className="about__portrait" src={site.aboutPortrait} alt={site.name} />
-      <div className="about__body">
-        <h1 className="page-title">About</h1>
-        {site.bio.map((p, i) => <p key={i} className="about__bio">{p}</p>)}
-        <h2 className="section-label">Selected clients</h2>
+    <>
+      <Slide n={5} title="About">
+        <div className="about">
+          <h1 className="h1 about__title">About.</h1>
+          <img className="about__portrait" src={site.aboutPortrait} alt={site.name} />
+          <div className="about__body">
+            {site.bio.map((p, i) => <p key={i} className="lede">{p}</p>)}
+            <dl className="facts facts--stack">
+              <div><dt>Email</dt><dd><a href={`mailto:${site.email}`}>{site.email}</a></dd></div>
+              <div><dt>Instagram</dt><dd><a href={site.instagram} target="_blank" rel="noreferrer">@{site.handle}</a></dd></div>
+              <div><dt>Based in</dt><dd>{site.location}</dd></div>
+              {site.representation && (
+                <div><dt>{site.representation.label}</dt><dd>{site.representation.name}, <a href={`mailto:${site.representation.email}`}>{site.representation.email}</a></dd></div>
+              )}
+            </dl>
+          </div>
+        </div>
+      </Slide>
+      <Slide n={6} title="Clients" dark>
         <ul className="clients">{site.clients.map(c => <li key={c}>{c}</li>)}</ul>
-        <h2 className="section-label">Contact</h2>
-        <p className="about__contact">
-          <a href={`mailto:${site.email}`}>{site.email}</a><br />
-          <a href={site.instagram} target="_blank" rel="noreferrer">@{site.handle}</a><br />
-          <span>{site.location}</span>
-        </p>
-        {site.representation && (
-          <p className="about__contact">
-            {site.representation.label}: {site.representation.name}<br />
-            <a href={`mailto:${site.representation.email}`}>{site.representation.email}</a>
-          </p>
-        )}
-      </div>
-    </div>
+      </Slide>
+    </>
   )
 }

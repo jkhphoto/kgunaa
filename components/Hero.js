@@ -3,17 +3,19 @@ import ReelButton from './ReelButton'
 
 export default function Hero() {
   return (
-    <section className="hero">
+    <section className="cover">
       {site.heroVideo ? (
-        <video className="hero__media" src={site.heroVideo} poster={site.heroPoster} autoPlay muted loop playsInline preload="auto" />
+        <video className="cover__media" src={site.heroVideo} poster={site.heroPoster} autoPlay muted loop playsInline preload="auto" />
       ) : (
-        <img className="hero__media" src={site.heroPoster} alt="" fetchPriority="high" />
+        <img className="cover__media" src={site.heroPoster} alt="" fetchPriority="high" />
       )}
-      <div className="hero__shade" />
-      <div className="hero__text">
-        <p className="hero__roles">{site.roles.join(' / ')}</p>
-        <h1 className="hero__name">{site.name}</h1>
-        <ReelButton reel={site.reel} />
+      <div className="cover__grid">
+        <h1 className="cover__name">Kevin<br />Gunawan.</h1>
+        <div className="cover__meta">
+          <p>{site.roles.join('\n')}</p>
+          <p>{site.location}</p>
+          <ReelButton reel={site.reel} />
+        </div>
       </div>
     </section>
   )

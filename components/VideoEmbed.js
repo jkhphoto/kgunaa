@@ -18,7 +18,7 @@ export default function VideoEmbed({ video, poster, title, aspect = '16 / 9' }) 
       ) : (
         <button className="embed__poster" onClick={() => setPlaying(true)} aria-label={`Play ${title}`}>
           {poster && <img src={poster} alt="" />}
-          <span className="embed__play">Play</span>
+          <span className="embed__play">Play ↗</span>
         </button>
       )}
     </div>

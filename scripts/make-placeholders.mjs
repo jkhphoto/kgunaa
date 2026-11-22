@@ -11,10 +11,10 @@ const src = path.join(root, 'stills-src')
 fs.mkdirSync(ph, { recursive: true })
 fs.mkdirSync(src, { recursive: true })
 
-// Alternate high-contrast mono and warm film tones, like the IG grid.
+// Neutral greys so placeholders don't fight the black-and-white system.
 const palettes = [
-  ['#111', '#bdbdbd'], ['#3a1205', '#e2572b'], ['#0b0b0b', '#8a8a8a'], ['#2a1a0c', '#d9a25b'],
-  ['#060606', '#d0d0d0'], ['#1a2c3b', '#7fb2d6'], ['#2b0d0d', '#c8322a'], ['#121212', '#6f6f6f'],
+  ['#111', '#bdbdbd'], ['#1c1c1c', '#e6e6e6'], ['#0b0b0b', '#8a8a8a'], ['#222', '#cfcfcf'],
+  ['#060606', '#d0d0d0'], ['#181818', '#9c9c9c'], ['#0d0d0d', '#f0f0f0'], ['#121212', '#6f6f6f'],
 ]
 
 function svg(w, h, [a, b], label) {
